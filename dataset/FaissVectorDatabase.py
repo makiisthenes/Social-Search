@@ -49,5 +49,6 @@ class FaissVectorDatabase:
 		self.vector_store.add_documents(documents, ids=doc_ids)
 
 	def get_retriever(self) -> VectorStoreRetriever:
-		"""Return the retriever object for use in LCEL chain."""
+		"""Return the retriever object for use in a Langchain Expression Language (LCEL) chain."""
 		return self.vector_store.as_retriever()
+	
