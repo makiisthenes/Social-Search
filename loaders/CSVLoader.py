@@ -14,7 +14,11 @@ class CSVFileLoader(AbstractBaseLoader):
 		for csv_file_path in csv_file_paths:
 			csv_loader = CSVLoader(csv_file_path)
 			self.all_documents.extend(csv_loader.load())
+		print(f'Loaded {len(self.all_documents)} documents from CSV files.')
+		return self.all_documents
 
 
 if __name__ == "__main__":
 	csv_files = glob.glob("data/*.csv")
+	csv_loader = CSVFileLoader()
+	documents = csv_loader.load(csv_files)
